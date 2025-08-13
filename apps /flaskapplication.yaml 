@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: flask
+spec:
+  destination:
+    namespace: flask-namespace
+    server: https://kubernetes.default.svc
+  source:
+    path: .
+    repoURL: https://github.com/preranabl/flask-chart.git
+    targetRevision: HEAD
+    helm:
+      parameters:
+        - name: autoscaling.enabled
+          value: 'true'
+        - name: replicaCount
+          value: '3'
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions: []
