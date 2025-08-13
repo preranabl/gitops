@@ -16,7 +16,6 @@ spec:
           value: 'true'
         - name: replicaCount
           value: '3'
-  sources: []
   project: default
   syncPolicy:
     automated:

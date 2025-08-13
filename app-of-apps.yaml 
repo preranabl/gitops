@@ -10,8 +10,7 @@ spec:
   source:
     path: apps
     repoURL: https://github.com/preranabl/gitops.git
-    targetRevision: HEAD
-  sources: []
+    targetRevision: main
   project: default
   syncPolicy:
     automated:
