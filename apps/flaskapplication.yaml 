@@ -9,7 +9,7 @@ spec:
   source:
     path: charts/flask
     repoURL: https://github.com/preranabl/flask-chart.git
-    targetRevision: HEAD
+    targetRevision: master
     helm:
       parameters:
         - name: autoscaling.enabled
