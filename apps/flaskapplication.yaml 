@@ -1,24 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: flask
+  name: flask # Application name
+  namespace: argocd # Must be in argocd namespace for App of Apps pattern
 spec:
-  destination:
-    namespace: flask-namespace
-    server: https://kubernetes.default.svc
-  source:
-    path: charts/flask
-    repoURL: https://github.com/preranabl/flask-chart.git
-    targetRevision: master
-    helm:
-      parameters:
-        - name: autoscaling.enabled
-          value: 'true'
-        - name: replicaCount
-          value: '3'
   project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: flask-namespace
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-    syncOptions: []
+  source:
+    path: charts/flask
+    repoURL: https://github.com/preranabl/flask-chart.git
+    targetRevision: master
