@@ -7,7 +7,7 @@ spec:
     namespace: flask-namespace
     server: https://kubernetes.default.svc
   source:
-    path: .
+    path: charts/flask
     repoURL: https://github.com/preranabl/flask-chart.git
     targetRevision: HEAD
     helm:
